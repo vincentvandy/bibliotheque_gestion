@@ -1,0 +1,84 @@
+<!-- La page dacceuil est dans un fichier a part car quasi que du html donc plus simple detre a part -->
+      <div class="masthead">
+        <h3 class="muted">Bibliothèque DWM</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="?tab=home">Accueil</a></li>
+                <li><a href="?tab=emprunts">Emprunts</a></li>
+                <li><a href="?tab=membres">Membres</a></li>
+                <li><a href="?tab=livres">Livres</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <!-- Afficher le nom de la personne connectée // ici pas de login donc jinscris un nom en code -->
+        <h1>Bienvenue Pierre!</h1>
+        <p class="lead">Gérez la bibliothèque DWM à partir de cette interface.</p>
+      </div>
+
+      <hr>
+
+      <!-- Example row of columns -->
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Retards</h2>
+
+          <!-- $retard_info contient le nombre de retards en cours  -->
+          <p><?php echo $retard_info; ?></p>
+          <p><a class="btn" href="index.php?tab=emprunts">Voir la liste &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Emprunt</h2>
+
+          <form method="post" action="?tab=emprunts" class="form-horizontal span12">
+            <fieldset class="span12">
+            <div class="control-group">
+              <label  class="control-label span4" for="fk_ouvrage">Titre du livre:</label>
+              <div class="controls span4">
+                <?php echo $selectbook; ?>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label span4" for="fk_membre">Membre: </label>
+              <div class="controls span4">
+                <?php echo $selectppl; ?>
+              </div>
+            </div>
+
+             <div class="control-group">
+              <label class="control-label span4" for="date">Date du jour</label>
+              <div class="controls span4">
+                <input type="date" name="date" id="date" placeholder="date du jour" value="<?php echo date('Y-m-d'); ?>">
+              </div>
+            </div>
+
+             <div class="control-group input-append">
+              <label class="control-label span4" for="appendedInput">Durée de l'emprunt</label>
+              <div class="controls">
+                <input type="number" class="span4" name="duree" id="appendedInput" placeholder="duree (j)" value="8">
+                <span class="add-on">jours</span>
+              </div>
+              </div>
+
+             <div class="control-group">
+              <div class="controls">
+                <input type="submit" class="btn" name="emprunter" value="confirmer">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+       </div>
+        <div class="span4">
+          <h2>Membre</h2>
+          <p>Ajouter un membre</p>
+          <p><i class="icon-warning-sign"></i> En construction... <i class="icon-warning-sign"></i></p>
+        </div>
+      </div>
